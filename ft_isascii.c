@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 20:43:17 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/20 10:20:25 by quintonpo        ###   ########.fr       */
+/*   Created: 2017/09/20 16:25:41 by qponcele          #+#    #+#             */
+/*   Updated: 2017/09/20 16:29:39 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "libft.h"
+#include <ctype.h>
 
-char	*ft_strcat(char *s1, const char *s2)
+int		ft_isascii(int c)
 {
-	int	i;
-	
-	i = ft_strlen(s1);
-	while (*s2)
-		s1[i++] = *s2++;
-	s1[i] = '\0';
-	return (s1);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }
 
 int		main()
 {
-	char b[50]  = "This is source";
-	char a[50] = "This is destination";
-
-	printf("%s\n", ft_strcat(a, b));
+	int a = 0;
+	int b = 127;
+	int c = 128;
+	int d = -1;
+	
+	printf("%d\n%d\n%d\n%d\n", isascii(a), isascii(b), isascii(c), isascii(d));
+	printf("%d\n%d\n%d\n%d\n", ft_isascii(a), ft_isascii(b), ft_isascii(c), ft_isascii(d));
 }
-

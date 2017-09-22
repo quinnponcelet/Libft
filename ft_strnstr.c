@@ -1,35 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/18 21:09:00 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/20 10:22:40 by quintonpo        ###   ########.fr       */
+/*   Created: 2017/09/20 13:20:36 by qponcele          #+#    #+#             */
+/*   Updated: 2017/09/20 14:30:25 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "libft.h"
+#include <string.h>
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t i;
 	size_t j;
 
-	i = ft_strlen(s1);
+	i = 0;
 	j = 0;
-	while (j < n)
-		s1[i++] = s2[j++];
-	s1[i] = '\0';
-	return (s1);
+	if (little[i] == '\0')
+		return ((char *)&big[i]);
+	while (big[j])
+	{
+		i = 0;
+		while (big[j] == little[i] && big[j] && i < len)
+		{
+			i++;
+			j++;
+		}
+		if (!little[i])
+			return ((char *)&big[j - i]);
+		j++;
+	}
+	return (NULL);
 }
 
-int		main(void)
+int		main()
 {
-	char a[50] = "helloppppppppppppppppppppppp\0";
-	char b[50] = "yello\0";
-
-	printf("%s", ft_strncat(a, b, 3));
+	char *a = "\0\0\0\0\0\0";
+	char *b = "\0\0\0\0";
+	printf("%s\n", strnstr(a, b, 25));
+	printf("%s\n", ft_strnstr(a, b, 25));
 }

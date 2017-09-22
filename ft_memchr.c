@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 20:43:17 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/20 10:20:25 by quintonpo        ###   ########.fr       */
+/*   Created: 2017/09/21 12:40:17 by qponcele          #+#    #+#             */
+/*   Updated: 2017/09/21 18:41:29 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
-	
-	i = ft_strlen(s1);
-	while (*s2)
-		s1[i++] = *s2++;
-	s1[i] = '\0';
-	return (s1);
+	while (n-- > 0)
+	{
+		if (*(unsigned char *)s == c)
+			return ((unsigned char *)s);
+		s++;
+	}
+	return (NULL);
 }
 
 int		main()
 {
-	char b[50]  = "This is source";
-	char a[50] = "This is destination";
-
-	printf("%s\n", ft_strcat(a, b));
+	char a[32] = "this is a test string";
+	char b[32] = "this is a test string";
+	printf("%s\n%s\n", memchr(a, 'g', 33), ft_memchr(b, 'g', 33));
 }
-

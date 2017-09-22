@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 20:43:17 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/20 10:20:25 by quintonpo        ###   ########.fr       */
+/*   Created: 2017/09/20 15:18:31 by qponcele          #+#    #+#             */
+/*   Updated: 2017/09/20 15:37:47 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "libft.h"
+#include <string.h>
 
-char	*ft_strcat(char *s1, const char *s2)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
-	
-	i = ft_strlen(s1);
-	while (*s2)
-		s1[i++] = *s2++;
-	s1[i] = '\0';
-	return (s1);
+	size_t i;
+
+	i = 0;
+	while (i < n - 1 && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }
 
 int		main()
 {
-	char b[50]  = "This is source";
-	char a[50] = "This is destination";
-
-	printf("%s\n", ft_strcat(a, b));
+	char *a = "hello";
+	char *b = "heLlo";
+	printf("%d\n", strncmp(a, b, 3));
+	printf("%d\n", ft_strncmp(a, b, 3));
 }
-

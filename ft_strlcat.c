@@ -6,27 +6,18 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 17:32:38 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/19 18:49:59 by qponcele         ###   ########.fr       */
+/*   Updated: 2017/09/21 19:10:29 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include <stdio.h>
-
-int		ft_strlen(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
+#include <string.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 	int s;
 
 	i = ft_strlen(dst);
@@ -40,14 +31,14 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (s + ft_strlen((char*)src));
 }
 
-
 int main()
 {
-    int x;
     char str[9] = "str";
     char str1[5] = "stri";
-    //    printf("%lu\n%s\n%s\n", strlcat(str, str1, 6), str, str1);
-    printf("%lu\n%s\n%s\n", ft_strlcat(str, str1, 6), str, str1);
+	char s[9] = "str";
+	char s1[5] = "stri";
+    printf("%lu\n%s\n%s\n", strlcat(str, str1, 6), str, str1);
+    printf("%lu\n%s\n%s\n", ft_strlcat(s, s1, 6), s, s1);
 	//    printf("%lu\n%zu\n", strlcat(str, str1, 9), ft_strlcat(str, str1, 9));
 }
 	

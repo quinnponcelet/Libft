@@ -6,7 +6,7 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 22:09:08 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/18 22:36:22 by qponcele         ###   ########.fr       */
+/*   Updated: 2017/09/20 15:46:43 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int		ft_atoi(char *str)
 
 int		main()
 {
-	char *a = "12345";
-	char *b = "-123456";
+	char *a = "2147483647";
+	char *b = "-2147483648";
 	printf("%d\n", ft_atoi(a));
 	printf("%d\n", ft_atoi(b));
 }

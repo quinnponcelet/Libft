@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/18 14:21:04 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/20 11:04:45 by quintonpo        ###   ########.fr       */
+/*   Created: 2017/09/20 00:06:33 by quintonpo         #+#    #+#             */
+/*   Updated: 2017/09/20 00:10:24 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <unistd.h>
 
-size_t	ft_strlen(const char *str)
+void	ft_putendl(char const *s)
 {
 	int i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
+		write(1, &s[i], 1);
 		i++;
 	}
-	return (i);
+	write (1, "\n", 1);
+}
+
+int		main()
+{
+	ft_putendl("this is a test");
 }

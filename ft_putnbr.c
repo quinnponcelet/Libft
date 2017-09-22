@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 20:43:17 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/20 10:20:25 by quintonpo        ###   ########.fr       */
+/*   Created: 2017/09/20 00:11:40 by quintonpo         #+#    #+#             */
+/*   Updated: 2017/09/20 13:16:42 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_putnbr(int n)
 {
-	int	i;
-	
-	i = ft_strlen(s1);
-	while (*s2)
-		s1[i++] = *s2++;
-	s1[i] = '\0';
-	return (s1);
+	long nb;
+
+	nb = n;
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb *= -1;
+	}
+	if (nb > 9)
+		ft_putnbr(nb / 10);
+	ft_putchar((nb % 10) + '0');
 }
 
 int		main()
 {
-	char b[50]  = "This is source";
-	char a[50] = "This is destination";
-
-	printf("%s\n", ft_strcat(a, b));
+	ft_putnbr(-2147483648);
 }
-

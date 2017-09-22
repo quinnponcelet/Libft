@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 20:43:17 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/20 10:20:25 by quintonpo        ###   ########.fr       */
+/*   Created: 2017/09/20 15:52:45 by qponcele          #+#    #+#             */
+/*   Updated: 2017/09/20 16:03:53 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "libft.h"
+#include <ctype.h>
 
-char	*ft_strcat(char *s1, const char *s2)
+int		ft_isalpha(int c)
 {
-	int	i;
-	
-	i = ft_strlen(s1);
-	while (*s2)
-		s1[i++] = *s2++;
-	s1[i] = '\0';
-	return (s1);
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+		return (1);
+	return (0);
 }
 
 int		main()
 {
-	char b[50]  = "This is source";
-	char a[50] = "This is destination";
+	int a = 'a';
+	int b = 'z';
+	int c = 34;
 
-	printf("%s\n", ft_strcat(a, b));
+	printf("%d\n%d\n%d\n", isalpha(a), isalpha(b), isalpha(c));
+	printf("%d\n%d\n%d\n", ft_isalpha(a), ft_isalpha(b), ft_isalpha(c));
 }
-

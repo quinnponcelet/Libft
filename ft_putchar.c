@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/18 14:21:04 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/20 11:04:45 by quintonpo        ###   ########.fr       */
+/*   Created: 2017/09/19 23:44:53 by quintonpo         #+#    #+#             */
+/*   Updated: 2017/09/19 23:46:50 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <unistd.h>
 
-size_t	ft_strlen(const char *str)
+void	ft_putchar(char c)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
+	write(1, &c, 1);
 }
