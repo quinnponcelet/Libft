@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 20:43:17 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/24 15:29:02 by qponcele         ###   ########.fr       */
+/*   Created: 2017/09/25 16:56:31 by quintonpo         #+#    #+#             */
+/*   Updated: 2017/09/25 17:04:14 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_strdel(char **as)
 {
-	int	i;
-	
-	i = ft_strlen(s1);
-	while (*s2)
-		s1[i++] = *s2++;
-	s1[i] = '\0';
-	return (s1);
+	free(as);
+	*as = NULL;
+}
+
+int		main()
+{
+	char *s1 = "string";
+	char *s = ft_strnew(10);
+	ft_strcpy(s, s1);
+	printf("%s\n", s);
+	ft_strdel((char **)s);
+	printf("%s\n", s);
 }

@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/20 10:27:38 by quintonpo         #+#    #+#             */
-/*   Updated: 2017/09/24 22:26:59 by quintonpo        ###   ########.fr       */
+/*   Created: 2017/09/25 17:24:55 by quintonpo         #+#    #+#             */
+/*   Updated: 2017/09/26 13:50:51 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
-char	*ft_strstr(const char *big, const char *little)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	size_t i;
-	size_t j;
+	char *s1;
+	unsigned int i;
 
+	s1 = (char *)malloc(sizeof(char) * len + 1);
 	i = 0;
-	j = 0;
-	if (!little[i])
-		return ((char *)&big[i]);
-	while (big[j])
+	while (i < len)
 	{
-		i = j;
-		while (big[i] == little[i - j] && big[i])
-		{
-			i++;
-		}
-		if (!little[i - j])
-			return((char *)&big[j]);
-		j++;
+		s1[i] = s[start];
+		i++;
+		start++;
 	}
-	return (NULL);
+	s1[i] = '\0';
+	return (s1);
+}
+
+int		main()
+{
+	char *s = "this string should make sub strings";
+
+	printf("strsub\n%s\n", ft_strsub(s, 0, 4));
 }

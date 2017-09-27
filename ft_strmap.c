@@ -1,24 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 20:43:17 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/24 15:29:02 by qponcele         ###   ########.fr       */
+/*   Created: 2017/09/26 17:43:54 by qponcele          #+#    #+#             */
+/*   Updated: 2017/09/26 19:51:21 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int	i;
+	char *s1;
+	unsigned i;
+
+	i = 0;
+	s1 = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (s1)
+	{
+		while (s[i])
+		{
+			s1[i] = f(s[i]);
+			i++;
+		}
+		s1[i] = '\0';
+		return (s1);
+	}
+	else
+		return (NULL);
+}
+
+int		main()
+{
+	char *s = "string to map";
 	
-	i = ft_strlen(s1);
-	while (*s2)
-		s1[i++] = *s2++;
-	s1[i] = '\0';
-	return (s1);
+	printf("strmap\n%s\n", s);
+	printf("%s\n", ft_strmap(s, &ft_touppertest));
 }

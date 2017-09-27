@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 20:43:17 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/24 15:29:02 by qponcele         ###   ########.fr       */
+/*   Created: 2017/09/26 14:25:26 by quintonpo         #+#    #+#             */
+/*   Updated: 2017/09/26 19:50:53 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	int	i;
-	
-	i = ft_strlen(s1);
-	while (*s2)
-		s1[i++] = *s2++;
-	s1[i] = '\0';
-	return (s1);
+	int i;
+
+	i = 0;
+	while (s[i])
+	{
+		f(&s[i]);
+		i++;
+	}
+}
+
+int		main()
+{
+	char s[50] = "string to iterate\0";
+
+	printf("striter\n%s\n", s);
+	ft_striter(s, &ft_touppertest);
+	printf("%s\n", s);
 }

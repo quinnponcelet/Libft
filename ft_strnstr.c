@@ -6,12 +6,11 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 13:20:36 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/20 14:30:25 by qponcele         ###   ########.fr       */
+/*   Updated: 2017/09/24 15:17:26 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -35,12 +34,4 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		j++;
 	}
 	return (NULL);
-}
-
-int		main()
-{
-	char *a = "\0\0\0\0\0\0";
-	char *b = "\0\0\0\0";
-	printf("%s\n", strnstr(a, b, 25));
-	printf("%s\n", ft_strnstr(a, b, 25));
 }

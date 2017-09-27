@@ -6,27 +6,22 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 15:18:31 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/20 15:37:47 by qponcele         ###   ########.fr       */
+/*   Updated: 2017/09/24 21:53:43 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t i;
+	unsigned char *st1;
+	unsigned char *st2;
 
 	i = 0;
-	while (i < n - 1 && s1[i] == s2[i])
+	st1 = (unsigned char *)s1;
+	st2 = (unsigned char *)s2;
+	while (i < n - 1 && st1[i] == st2[i] && st1[i])
 		i++;
-	return (s1[i] - s2[i]);
-}
-
-int		main()
-{
-	char *a = "hello";
-	char *b = "heLlo";
-	printf("%d\n", strncmp(a, b, 3));
-	printf("%d\n", ft_strncmp(a, b, 3));
+	return (st1[i] - st2[i]);
 }

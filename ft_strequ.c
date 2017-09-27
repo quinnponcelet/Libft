@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 20:43:17 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/24 15:29:02 by qponcele         ###   ########.fr       */
+/*   Created: 2017/09/25 11:30:49 by qponcele          #+#    #+#             */
+/*   Updated: 2017/09/25 11:37:34 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-char	*ft_strcat(char *s1, const char *s2)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	int	i;
-	
-	i = ft_strlen(s1);
-	while (*s2)
-		s1[i++] = *s2++;
-	s1[i] = '\0';
-	return (s1);
+	while (*s1 && *s2 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	if (*s1 != *s2)
+		return (0);
+	return (1);
+}
+
+int		main()
+{
+	char *s = "string";
+	char *s1 = "string";
+
+	printf("strequ\n%d\n", ft_strequ(s, s1));
 }

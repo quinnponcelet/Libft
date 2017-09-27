@@ -6,11 +6,9 @@
 /*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 23:47:30 by quintonpo         #+#    #+#             */
-/*   Updated: 2017/09/20 00:04:28 by quintonpo        ###   ########.fr       */
+/*   Updated: 2017/09/24 22:11:01 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 void	ft_putstr(char const *s)
 {
@@ -19,7 +17,7 @@ void	ft_putstr(char const *s)
 	i = 0;
 	while (s[i])
 	{
-		write(1, &s[i], 1);
+		ft_putchar(s[i]);
 		i++;
 	}
 }

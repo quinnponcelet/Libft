@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/19 20:43:17 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/24 15:29:02 by qponcele         ###   ########.fr       */
+/*   Created: 2017/09/25 14:50:30 by quintonpo         #+#    #+#             */
+/*   Updated: 2017/09/25 16:39:54 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_memdel(void **ap)
 {
-	int	i;
+	free(ap);
+	*ap = NULL;
+}
+
+int		main()
+{
+	size_t t = 10;
+	char *s1 = "string";
+	char *s = (char *)ft_memalloc(t);
 	
-	i = ft_strlen(s1);
-	while (*s2)
-		s1[i++] = *s2++;
-	s1[i] = '\0';
-	return (s1);
+	ft_strcpy(s, s1);
+	printf("%s\n", s);
+	ft_memdel((void **)s);
+	printf("%s\n", s);
 }

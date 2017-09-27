@@ -6,28 +6,21 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:55:59 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/20 15:17:10 by qponcele         ###   ########.fr       */
+/*   Updated: 2017/09/24 21:51:00 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-
 int		ft_strcmp(const char *s1, const char *s2)
 {
-	while (*s1 && *s2 && *s1 == *s2)
+	unsigned char *st1;
+	unsigned char *st2;
+
+	st1 = (unsigned char *)s1;
+	st2 = (unsigned char *)s2;
+	while (*st1 && *st2 && *st1 == *st2)
 	{
-		s1++;
-		s2++;
+		st1++;
+		st2++;
 	}
-	return (*s1 - *s2);
-}
-
-int		main(void)
-{
-	char *a = "hello";
-	char *b = "hello";
-
-	printf("%d\n", strcmp(a, b));
-	printf("%d\n", ft_strcmp(a, b));
+	return (*st1 - *st2);
 }

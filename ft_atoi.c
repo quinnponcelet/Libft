@@ -6,17 +6,15 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 22:09:08 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/20 15:46:43 by qponcele         ###   ########.fr       */
+/*   Updated: 2017/09/25 15:23:22 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int		ft_atoi(char *str)
+int		ft_atoi(const char *str)
 {
 	int i;
 	int s;
-	int n;
+	long n;
 
 	i = 0;
 	s = 0;
@@ -39,12 +37,3 @@ int		ft_atoi(char *str)
 	}
 	return (n);
 }
-
-int		main()
-{
-	char *a = "2147483647";
-	char *b = "-2147483648";
-	printf("%d\n", ft_atoi(a));
-	printf("%d\n", ft_atoi(b));
-}
-

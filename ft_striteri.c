@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/20 16:57:26 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/24 21:45:21 by quintonpo        ###   ########.fr       */
+/*   Created: 2017/09/26 16:41:29 by quintonpo         #+#    #+#             */
+/*   Updated: 2017/09/26 16:55:15 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	size_t i;
+	unsigned i;
 
 	i = 0;
-	while (i < len)
+	while (s[i])
 	{
-		((unsigned char *)b)[i] = c;
-		++i;
+		f(i, &s[i]);
+		i++;
 	}
-	return (b);
-}	
+}
+
+int		main()
+{
+	char s[50] = "string to iterate\0";
+	
+	printf("striteri\n%s\n", s);
+	ft_striteri(s, &ft_touppertest);
+	printf("%s\n", s);
+}
