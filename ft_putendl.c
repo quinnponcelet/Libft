@@ -6,9 +6,11 @@
 /*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 00:06:33 by quintonpo         #+#    #+#             */
-/*   Updated: 2017/09/24 22:10:50 by quintonpo        ###   ########.fr       */
+/*   Updated: 2017/09/28 13:10:13 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_putendl(char const *s)
 {

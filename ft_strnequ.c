@@ -6,11 +6,10 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 11:38:00 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/25 11:54:24 by qponcele         ###   ########.fr       */
+/*   Updated: 2017/09/28 13:01:27 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 int		ft_strnequ(char const *s1, char const *s2, size_t n)
@@ -23,12 +22,4 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n)
 	if (s1[i] != s2[i])
 		return (0);
 	return (1);
-}
-
-int		main()
-{
-	char *s = "string";
-	char *s1 = "strind";
-
-	printf("strnequ\n%d\n%d\n", ft_strnequ(s, s1, 5), ft_strnequ(s, s1, 6));
 }

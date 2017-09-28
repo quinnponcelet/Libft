@@ -6,7 +6,7 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:30:11 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/26 19:54:51 by qponcele         ###   ########.fr       */
+/*   Updated: 2017/09/27 18:29:31 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 
-void	ft_putchar(char c);
+
 int		ft_atoi(char *str);
 void	ft_putendl(char const *s);
 void	ft_putnbr(int n);
@@ -47,7 +47,28 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 void	*ft_memmove(void *dst, void *src, size_t len);
 void	*ft_memalloc(size_t size);
+void	ft_memdel(void **ap);
 char	*ft_strnew(size_t size);
+void	ft_strdel(char **as);
+void	ft_strclr(char *s);
+void	ft_striter(char *s, void (*f)(char *));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	*ft_strmap(char const *s, char (*f)(char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int		ft_strequ(char const *s1, char const *s2);
+int		ft_strnequ(char const *s1, char const *s2, size_t n);
+char	*ft_strsub(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s);
+void	ft_putchar(char c);
+void	ft_putstr(char const *s);
+void	ft_putendl(char const *s);
+void	ft_putnbr(int n);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char const *s, int fd);
+void	ft_putendl_fd(char const *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 char	ft_touppertest(unsigned int i, char c);
+
 
 #endif

@@ -6,11 +6,10 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/26 17:43:54 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/26 19:51:21 by qponcele         ###   ########.fr       */
+/*   Updated: 2017/09/28 12:57:48 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 char	*ft_strmap(char const *s, char (*f)(char))
@@ -32,12 +31,4 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	}
 	else
 		return (NULL);
-}
-
-int		main()
-{
-	char *s = "string to map";
-	
-	printf("strmap\n%s\n", s);
-	printf("%s\n", ft_strmap(s, &ft_touppertest));
 }

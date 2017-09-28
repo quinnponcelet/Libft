@@ -6,11 +6,10 @@
 /*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 17:24:55 by quintonpo         #+#    #+#             */
-/*   Updated: 2017/09/26 13:50:51 by quintonpo        ###   ########.fr       */
+/*   Updated: 2017/09/28 13:02:53 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
@@ -28,11 +27,4 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	}
 	s1[i] = '\0';
 	return (s1);
-}
-
-int		main()
-{
-	char *s = "this string should make sub strings";
-
-	printf("strsub\n%s\n", ft_strsub(s, 0, 4));
 }

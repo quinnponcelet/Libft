@@ -6,7 +6,7 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 19:57:56 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/24 21:37:57 by quintonpo        ###   ########.fr       */
+/*   Updated: 2017/09/27 16:27:58 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	if (!*(char *)s)
-		return ;
 	ft_memset(s, 0, n);
 }

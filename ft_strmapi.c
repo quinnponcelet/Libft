@@ -6,11 +6,10 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/26 19:44:11 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/26 19:55:51 by qponcele         ###   ########.fr       */
+/*   Updated: 2017/09/28 12:59:04 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
@@ -32,12 +31,4 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	else
 		return (NULL);
-}
-
-int		main()
-{
-	char *s = "string to map";
-
-	printf("strmapi\n%s\n", s);
-	printf("%s\n", ft_strmapi(s, &ft_touppertest));
 }
