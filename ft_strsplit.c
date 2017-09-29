@@ -6,71 +6,53 @@
 /*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 10:47:20 by quintonpo         #+#    #+#             */
-/*   Updated: 2017/09/28 13:08:27 by quintonpo        ###   ########.fr       */
+/*   Updated: 2017/09/28 16:13:10 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		mallocsize(char const *s, char c)
+static char		*substring(char const *s, char c, unsigned int *i)
 {
-	int i;
-	int t;
-	int w;
-  
-	i = 0;
-	w = 0;
-	t = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-	    	t = 0;
-		else if (!t && s[i])
-		{
-			t = 1;
-			w++;
-		}
-		i++;
-	}
-	return (w += 1);
+	unsigned j;
+	unsigned st;
+	char *str;
+
+	while (s[*i] == c && s[*i])
+		(*i)++;
+	st = *i;
+	while (s[*i] != c && s[*i])
+		(*i)++;
+	if (!(str = ft_strnew(*i - st)))
+		return (NULL);
+	j = 0;
+	while (st < *i)
+		str[j++] = s[st++];
+	str[j] = '\0';
+	return (str);
 }
 
-int		submallocsize(char const *s, char c, int i)
+char			**ft_strsplit(char const *s, char c)
 {
-	int cn;
-
-	cn = 0;
-	while (s[i] != c && s[i])
-	{
-		i++;
-		cn++;
-	}
-	return (cn);
-}
-
-char	**ft_strsplit(char const *s, char c)
-{
-	int x;
-	int y;
-	int i;
+	unsigned i;
+	unsigned j;
+	unsigned w;
 	char **a;
 
-	x = 0;
 	i = 0;
-	a = (char **)malloc(sizeof(char *) * mallocsize(s, c));
-	if (!a)
-		return (NULL);
+	w = 0;
 	while (s[i])
 	{
-		y = 0;
-		while (s[i] == c)
-			i++;
-		a[x] = ft_strnew(submallocsize(s, c, i));
-		while (s[i] && s[i] != c)
-			a[x][y++] = s[i++];
-		a[x][y] = '\0';
-		x++;
+		if (s[i] != c && (s[i + 1] == c || !s[i + 1]))
+			w++;
+		i++;
 	}
-	a[x] = 0;
+	if (!(a = (char **)malloc(sizeof(char *) * (w + 1))))
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (i < w)
+		a[i++] = substring(s, c, &j);
+	a[i] = 0;
 	return (a);
 }

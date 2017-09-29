@@ -6,13 +6,13 @@
 /*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 10:48:44 by quintonpo         #+#    #+#             */
-/*   Updated: 2017/09/28 13:05:18 by quintonpo        ###   ########.fr       */
+/*   Updated: 2017/09/28 16:14:03 by quintonpo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		whitespaces1(char const *s)
+static int		whitespaces1(char const *s)
 {
 	int i;
 
@@ -22,7 +22,7 @@ int		whitespaces1(char const *s)
 	return (i);
 }
 
-int		whitespaces2(char const *s, int i)
+static int		whitespaces2(char const *s, int i)
 {
 	int	j;
 
@@ -42,7 +42,7 @@ char	*ft_strtrim(char const *s)
 	i = whitespaces1(s);
 	j = whitespaces2(s, i);
 	c = 0;
-	s1 = ft_strnew(j - i);
+	s1 = ft_strnew(j - i + 1);
 	if (!s1)
 		return (NULL);
 	while (i <= j)
