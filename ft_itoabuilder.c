@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_itoabuilder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 19:44:11 by qponcele          #+#    #+#             */
-/*   Updated: 2017/10/02 15:56:31 by qponcele         ###   ########.fr       */
+/*   Created: 2017/10/03 12:37:01 by qponcele          #+#    #+#             */
+/*   Updated: 2017/10/03 12:49:44 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_itoabuilder(long *n, size_t *c)
 {
-	char		*s1;
-	unsigned	i;
+	char	*s;
+	long	n1;
+	size_t	t;
 
-	if (!s || !f)
-		return (NULL);
-	i = 0;
-	if (!(s1 = (char *)malloc(sizeof(char) * ft_strlen(s) + 1)))
-		return (NULL);
-	while (s[i])
+	t = 0;
+	if (*n < 0)
 	{
-		s1[i] = f(i, s[i]);
-		i++;
+		*n *= -1;
+		t++;
 	}
-	s1[i] = '\0';
-	return (s1);
+	n1 = *n;
+	while (n1 /= 10)
+		(*c)++;
+	(*c) += t;
+	if (!(s = ft_strnew(*c)))
+		return (NULL);
+	else if (t > 0)
+		s[0] = '-';
+	s[*c] = '\0';
+	return (s);
 }

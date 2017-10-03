@@ -6,7 +6,7 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/19 20:43:17 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/24 15:29:02 by qponcele         ###   ########.fr       */
+/*   Updated: 2017/10/02 14:45:22 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strcat(char *s1, const char *s2)
 {
 	int	i;
-	
+
 	i = ft_strlen(s1);
 	while (*s2)
 		s1[i++] = *s2++;

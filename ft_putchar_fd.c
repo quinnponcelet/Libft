@@ -6,7 +6,7 @@
 /*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 14:00:04 by quintonpo         #+#    #+#             */
-/*   Updated: 2017/09/25 14:04:19 by quintonpo        ###   ########.fr       */
+/*   Updated: 2017/10/02 14:43:17 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write (fd, &c, 1);
+	write(fd, &c, 1);
 }

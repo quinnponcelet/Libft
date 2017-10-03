@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstpush.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 19:44:11 by qponcele          #+#    #+#             */
-/*   Updated: 2017/10/02 15:56:31 by qponcele         ###   ########.fr       */
+/*   Created: 2017/10/03 13:33:35 by qponcele          #+#    #+#             */
+/*   Updated: 2017/10/03 13:35:38 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+t_list	*ft_lstpush(t_list *lst, void const *content, size_t content_size)
 {
-	char		*s1;
-	unsigned	i;
+	t_list	*new;
+	t_list	*tmp;
 
-	if (!s || !f)
+	if (!(new = ft_lstnew(content, content_size)))
 		return (NULL);
-	i = 0;
-	if (!(s1 = (char *)malloc(sizeof(char) * ft_strlen(s) + 1)))
-		return (NULL);
-	while (s[i])
-	{
-		s1[i] = f(i, s[i]);
-		i++;
-	}
-	s1[i] = '\0';
-	return (s1);
+	tmp = lst;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
+	return (lst);
 }

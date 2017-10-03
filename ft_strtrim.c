@@ -6,42 +6,24 @@
 /*   By: quintonponcelet <marvin@42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 10:48:44 by quintonpo         #+#    #+#             */
-/*   Updated: 2017/09/28 16:14:03 by quintonpo        ###   ########.fr       */
+/*   Updated: 2017/10/03 12:59:41 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		whitespaces1(char const *s)
+char		*ft_strtrim(char const *s)
 {
-	int i;
+	char	*s1;
+	int		c;
+	int		i;
+	int		j;
 
-	i = 0;
-	while (s[i] <= ' ' && s[i])
-		i++;
-	return (i);
-}
-
-static int		whitespaces2(char const *s, int i)
-{
-	int	j;
-
-	j = ft_strlen(s) - 1;
-	while (s[j] <= ' ' && j > i)
-		j--;
-	return (j);
-}
-
-char	*ft_strtrim(char const *s)
-{
-	char *s1;
-	int i;
-	int j;
-	int c;
-
-	i = whitespaces1(s);
-	j = whitespaces2(s, i);
+	if (!s)
+		return (NULL);
+	i = ft_trmfrnt(s);
 	c = 0;
+	j = ft_trmrear(s, i);
 	s1 = ft_strnew(j - i + 1);
 	if (!s1)
 		return (NULL);

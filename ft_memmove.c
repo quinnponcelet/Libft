@@ -6,7 +6,7 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 22:33:25 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/24 21:46:57 by quintonpo        ###   ########.fr       */
+/*   Updated: 2017/10/02 14:31:43 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memmove(void *dst, void *src, size_t len)
 {
-	size_t i;
-	
+	size_t	i;
+
 	i = 0;
 	if (dst > src)
 	{

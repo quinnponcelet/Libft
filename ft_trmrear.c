@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_trmrear.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 19:44:11 by qponcele          #+#    #+#             */
-/*   Updated: 2017/10/02 15:56:31 by qponcele         ###   ########.fr       */
+/*   Created: 2017/10/03 12:56:26 by qponcele          #+#    #+#             */
+/*   Updated: 2017/10/03 12:57:16 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int		ft_trmrear(char const *s, int i)
 {
-	char		*s1;
-	unsigned	i;
+	int	j;
 
-	if (!s || !f)
-		return (NULL);
-	i = 0;
-	if (!(s1 = (char *)malloc(sizeof(char) * ft_strlen(s) + 1)))
-		return (NULL);
-	while (s[i])
-	{
-		s1[i] = f(i, s[i]);
-		i++;
-	}
-	s1[i] = '\0';
-	return (s1);
+	j = ft_strlen(s) - 1;
+	while (s[j] <= ' ' && j > i)
+		j--;
+	return (j);
 }

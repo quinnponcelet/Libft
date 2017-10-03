@@ -6,18 +6,17 @@
 /*   By: qponcele <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 11:30:49 by qponcele          #+#    #+#             */
-/*   Updated: 2017/09/28 13:00:05 by quintonpo        ###   ########.fr       */
+/*   Updated: 2017/10/02 16:30:23 by qponcele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int		ft_strequ(char const *s1, char const *s2)
 {
-	while (*s1 && *s2 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-	if (*s1 != *s2)
+	if (!s1 || !s2)
 		return (0);
-	return (1);
+	if (!ft_strcmp(s1, s2))
+		return (1);
+	return (0);
 }
